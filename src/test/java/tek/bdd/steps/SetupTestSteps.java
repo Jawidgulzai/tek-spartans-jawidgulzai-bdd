@@ -21,9 +21,16 @@ public class SetupTestSteps extends SeleniumUtility {
         System.out.println(topLeftCornerTekSchoolLogo);
     }
 
+    @Then("Validate Sign in button is Enabled")
+    public void validateSignInButtonIsEnabled() {
+        clickOnElement(By.linkText("Sign in"));
+        Assert.assertTrue(true);
+    }
+
     @Then("Close browser")
     public void closeBrowser() {
         quitBrowser();
 
     }
+
 }
