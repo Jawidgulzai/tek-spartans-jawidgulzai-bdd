@@ -11,6 +11,11 @@ public class SecurityTestSteps extends SeleniumUtility {
     public void userClickOnSignInLink() {
         clickOnElement(By.linkText("Sign in"));
     }
+    @Then("validate user is in sign in page")
+    public void validateUserIsInSignInPage() {
+        String pageSubTitle = getElementText(By.className("login__subtitle"));
+        Assert.assertEquals("Sign in", pageSubTitle);
+    }
 
     @When("user enter username and password and click on login")
     public void userEnterUsernameAndPasswordAndClickOnLogin() {
@@ -21,9 +26,8 @@ public class SecurityTestSteps extends SeleniumUtility {
 
     @Then("user should be able to see account link")
     public void userShouldBeAbleToSeeAccountLink() {
-        boolean isAccountBtnIsVisible = isElementEnabled(By.linkText("Account"));
-        Assert.assertTrue(isAccountBtnIsVisible);
-
+        boolean isAccountBtnIsDisplayed = isElementIsDisplayed(By.linkText("Account"));
+        Assert.assertTrue(isAccountBtnIsDisplayed);
     }
 
 }
