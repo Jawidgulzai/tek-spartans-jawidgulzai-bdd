@@ -13,8 +13,8 @@ public class SecurityTestSteps extends SeleniumUtility {
     }
     @Then("validate user is in sign in page")
     public void validateUserIsInSignInPage() {
-        String pageSubTitle = getElementText(By.className("login__subtitle"));
-        Assert.assertEquals("Sign in", pageSubTitle);
+        String pageSignInTitle = getElementText(By.className("login__subtitle"));
+        Assert.assertEquals("Sign in", pageSignInTitle);
     }
 
     @When("user enter username and password and click on login")
