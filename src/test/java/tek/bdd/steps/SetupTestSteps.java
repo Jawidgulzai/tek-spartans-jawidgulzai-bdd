@@ -3,7 +3,7 @@ package tek.bdd.steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
+import tek.bdd.pages.HomePage;
 import tek.bdd.utility.SeleniumUtility;
 
 public class SetupTestSteps extends SeleniumUtility {
@@ -16,14 +16,14 @@ public class SetupTestSteps extends SeleniumUtility {
 
     @Then("Validate top left corner is TEKSCHOOL")
     public void validateTopLeftCornerIsTekSchool() {
-        String topLeftCornerTekSchoolLogo = getElementText(By.linkText("TEKSCHOOL"));
+        String topLeftCornerTekSchoolLogo = getElementText(HomePage.TEK_SCHOOL_LOGO);
         Assert.assertEquals("TEKSCHOOL", topLeftCornerTekSchoolLogo);
         System.out.println(topLeftCornerTekSchoolLogo);
     }
 
     @Then("Validate Sign in button is Enabled")
     public void validateSignInButtonIsEnabled() {
-        boolean isSignBtnIsEnabled = isElementEnabled(By.linkText("Sign in"));
+        boolean isSignBtnIsEnabled = isElementEnabled(HomePage.SING_IN_LINK);
         Assert.assertTrue(isSignBtnIsEnabled);
     }
 
