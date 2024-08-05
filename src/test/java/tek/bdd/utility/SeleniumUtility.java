@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import tek.bdd.base.BaseSetup;
-
 import java.time.Duration;
+
 
 public class SeleniumUtility extends BaseSetup {
     private WebDriverWait getWait(){
@@ -32,5 +32,7 @@ public class SeleniumUtility extends BaseSetup {
     }
 
     public boolean isElementIsDisplayed(By locator) {
-        return waitForVisibility(locator).isDisplayed();}
+        return waitForVisibility(locator).isDisplayed();
+    }
+
 }

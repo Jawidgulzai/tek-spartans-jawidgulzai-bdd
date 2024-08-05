@@ -1,4 +1,4 @@
-Feature: Security tests scenarios
+Feature: Sign in tests scenarios
 
   Scenario: validate sign in functionality with valid credential
     When user click on sign in link
@@ -12,7 +12,7 @@ Feature: Security tests scenarios
     When user enter "<username>" and "<password>" and click on login
     Then user should see error "wrong username or password"
     Examples:
-      | username               | password      |
-      | invalid@gmail.com      | Password@123  |
+      | username           | password      |
+      | invalid@gmail.com  | Password@123  |
       | jawid_g9@gmail.com | WrongPassword |
-      | invalid@gmail.com      | WrongPassword |
+      | invalid@gmail.com  | WrongPassword |

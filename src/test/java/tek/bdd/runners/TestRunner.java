@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 // Use the @CucumberOptions annotation to specify configuration options for Cucumber.
 @CucumberOptions(
         // Specify the location of the feature files. These files contain the Gherkin syntax for your tests.
-        features = "classpath:features/SetupTest.feature",
+        features = "classpath:features/SecurityTest.feature",
         // Define the package where the step definitions are located.
         // Step definitions are methods that implement the steps in the feature files.
         glue = "tek.bdd.steps",
