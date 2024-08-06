@@ -1,6 +1,10 @@
-Feature: Create New Account
+Feature: Create new account functionality
 
-  Scenario: Navigate to retail app and Create New Account
-    Given Open browser and navigate to retail app
-    Given user click on sign in link
-    Given
+  Scenario: create valid account with random email
+    Given user click on "Sign in" link
+    Then validate user is in sign in page
+    Given user click on "Create New Account" link
+    When user enter "Jawid" and "random" and "Jawid123$"
+    When user click on "Sign Up" button
+    Then validate user is in account page
+    Then validate email address in account page match
