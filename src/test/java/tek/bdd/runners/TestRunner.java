@@ -17,7 +17,11 @@ import org.junit.runner.RunWith;
         // When dryRun is true, Cucumber will check for missing step definitions but won't run the tests.
         dryRun = false,
 
-        tags = "@Smoke and @UserStory1"
+        tags = "@UserStory2",
+
+        plugin = {
+                "html:target/cucumber_report/index.html"
+        }
 )
 // The TestRunner class is used to configure and run your Cucumber tests.
 public class TestRunner {
