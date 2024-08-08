@@ -9,7 +9,6 @@ import tek.bdd.pages.AccountPage;
 import tek.bdd.pages.SignUpPage;
 import tek.bdd.utility.RandomGenerator;
 import tek.bdd.utility.SeleniumUtility;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +21,6 @@ public class CreateNewAccountSteps extends SeleniumUtility {
     public void userEnterNewAccountInfo(String name, String email, String password) {
 
         emailToUse = email.equalsIgnoreCase("random") ? RandomGenerator.generateRandomEmail() : email;
-
         sendKeys(SignUpPage.NAME_INPUT, name);
         sendKeys(SignUpPage.EMAIL_INPUT, emailToUse);
         sendKeys(SignUpPage.PASSWORD_INPUT, password);
@@ -33,14 +31,12 @@ public class CreateNewAccountSteps extends SeleniumUtility {
     @Then("validate user is in account page")
     public void validateUserInAccountPage() {
         String actualText  = getElementText(AccountPage.PROFILE_PAGE_TITLE);
-
         Assert.assertEquals("Account page should contains Your Profile Text","Your Profile", actualText);
     }
 
     @Then("validate email address in account page match")
     public void validateEmailAddressInAccountPageMatch() {
         String actualEmail = getElementText(AccountPage.PROFILE_EMAIL_TEXT);
-
         Assert.assertEquals("Email in Account page should match with email used in create account step", emailToUse, actualEmail);
     }
 
@@ -97,7 +93,7 @@ public class CreateNewAccountSteps extends SeleniumUtility {
 
     @When("user enter new account as list of maps")
     public void user_enter_new_account_as_list_of_maps(DataTable dataTable) {
-        //Converting data table to list of Maps
+        //Converting data table to a list of Maps
         List<Map<String, String>> data= dataTable.asMaps();
 
         String email = data.get(0).get("email");
@@ -149,7 +145,6 @@ public class CreateNewAccountSteps extends SeleniumUtility {
         for (int index = 0; index < expectedData.size(); index++) {
             String expected = expectedData.get(index);
             String actual = errorElements.get(index).getText();
-
             Assert.assertEquals("Error Message should match",
                     expected,
                     actual);
