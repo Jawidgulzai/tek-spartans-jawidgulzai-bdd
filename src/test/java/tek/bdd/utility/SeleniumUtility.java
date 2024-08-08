@@ -1,5 +1,7 @@
 package tek.bdd.utility;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,6 +14,9 @@ import java.util.List;
 
 
 public class SeleniumUtility extends BaseSetup {
+
+    private static final Logger LOGGER = LogManager.getLogger(SeleniumUtility.class);
+
     private WebDriverWait getWait(){
         return new WebDriverWait(getDriver(), Duration.ofSeconds(20));
     }
