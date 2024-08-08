@@ -12,13 +12,13 @@ import java.util.Properties;
 public abstract class BaseSetup {
 
     private static WebDriver driver;
-    private final Properties properties;
+    private Properties properties;
     //Find the full path to file
     //FileInputStream to read the file
     //properties and load the fileInputStream to the properties
     public BaseSetup(){
         try {
-            String configFilePath = System.getProperty("user.dir") + "/src/test/resources/configs/div/config.properties";
+            String configFilePath = System.getProperty("user.dir") + "/src/test/resources/configs/div-config.properties";
             File file = new File(configFilePath);
             FileInputStream fileInputStream = new FileInputStream(file);
             properties = new Properties();
