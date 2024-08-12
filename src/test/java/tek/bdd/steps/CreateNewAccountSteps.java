@@ -14,30 +14,35 @@ import java.util.List;
 import java.util.Map;
 
 public class CreateNewAccountSteps extends SeleniumUtility {
-
     private static String emailToUse;
 
-    @When("user enter {string} and {string} and {string}")
+    @When("user enter {string} and {string}  and {string}")
     public void userEnterNewAccountInfo(String name, String email, String password) {
 
-        emailToUse = email.equalsIgnoreCase("random") ? RandomGenerator.generateRandomEmail() : email;
-        sendKeys(SignUpPage.NAME_INPUT, name);
-        sendKeys(SignUpPage.EMAIL_INPUT, emailToUse);
-        sendKeys(SignUpPage.PASSWORD_INPUT, password);
-        sendKeys(SignUpPage.CONFIRM_PASSWORD, password);
+        emailToUse = email.equalsIgnoreCase("random")
+                ? RandomGenerator.generateRandomEmail() : email;
+
+        sendText(SignUpPage.NAME_INPUT, name);
+        sendText(SignUpPage.EMAIL_INPUT, emailToUse);
+        sendText(SignUpPage.PASSWORD_INPUT, password);
+        sendText(SignUpPage.CONFIRM_PASSWORD, password);
 
     }
 
     @Then("validate user is in account page")
     public void validateUserInAccountPage() {
-        String actualText  = getElementText(AccountPage.PROFILE_PAGE_TITLE);
-        Assert.assertEquals("Account page should contains Your Profile Text","Your Profile", actualText);
+        String actualText = getElementText(AccountPage.PROFILE_PAGE_TITLE);
+
+        Assert.assertEquals("Account page should contains Your Profile Text"
+                , "Your Profile", actualText);
     }
 
     @Then("validate email address in account page match")
     public void validateEmailAddressInAccountPageMatch() {
         String actualEmail = getElementText(AccountPage.PROFILE_EMAIL_TEXT);
-        Assert.assertEquals("Email in Account page should match with email used in create account step", emailToUse, actualEmail);
+
+        Assert.assertEquals("Email in Account page should match with email used in create account step",
+                emailToUse, actualEmail);
     }
 
     @When("user enter new account info")
@@ -51,10 +56,10 @@ public class CreateNewAccountSteps extends SeleniumUtility {
         emailToUse = email.equalsIgnoreCase("random")
                 ? RandomGenerator.generateRandomEmail() : email;
 
-        sendKeys(SignUpPage.NAME_INPUT, name);
-        sendKeys(SignUpPage.EMAIL_INPUT, emailToUse);
-        sendKeys(SignUpPage.PASSWORD_INPUT, password);
-        sendKeys(SignUpPage.CONFIRM_PASSWORD, password);
+        sendText(SignUpPage.NAME_INPUT, name);
+        sendText(SignUpPage.EMAIL_INPUT, emailToUse);
+        sendText(SignUpPage.PASSWORD_INPUT, password);
+        sendText(SignUpPage.CONFIRM_PASSWORD, password);
     }
 
     @When("user enter new account info using list Data")
@@ -68,10 +73,10 @@ public class CreateNewAccountSteps extends SeleniumUtility {
         emailToUse = email.equalsIgnoreCase("random")
                 ? RandomGenerator.generateRandomEmail() : email;
 
-        sendKeys(SignUpPage.NAME_INPUT, name);
-        sendKeys(SignUpPage.EMAIL_INPUT, emailToUse);
-        sendKeys(SignUpPage.PASSWORD_INPUT, password);
-        sendKeys(SignUpPage.CONFIRM_PASSWORD, password);
+        sendText(SignUpPage.NAME_INPUT, name);
+        sendText(SignUpPage.EMAIL_INPUT, emailToUse);
+        sendText(SignUpPage.PASSWORD_INPUT, password);
+        sendText(SignUpPage.CONFIRM_PASSWORD, password);
     }
 
     @When("user enter new account as list of list")
@@ -85,16 +90,16 @@ public class CreateNewAccountSteps extends SeleniumUtility {
         emailToUse = email.equalsIgnoreCase("random")
                 ? RandomGenerator.generateRandomEmail() : email;
 
-        sendKeys(SignUpPage.NAME_INPUT, name);
-        sendKeys(SignUpPage.EMAIL_INPUT, emailToUse);
-        sendKeys(SignUpPage.PASSWORD_INPUT, password);
-        sendKeys(SignUpPage.CONFIRM_PASSWORD, password);
+        sendText(SignUpPage.NAME_INPUT, name);
+        sendText(SignUpPage.EMAIL_INPUT, emailToUse);
+        sendText(SignUpPage.PASSWORD_INPUT, password);
+        sendText(SignUpPage.CONFIRM_PASSWORD, password);
     }
 
     @When("user enter new account as list of maps")
     public void user_enter_new_account_as_list_of_maps(DataTable dataTable) {
-        //Converting data table to a list of Maps
-        List<Map<String, String>> data= dataTable.asMaps();
+        //Converting data table to list of Maps
+        List<Map<String, String>> data = dataTable.asMaps();
 
         String email = data.get(0).get("email");
         String name = data.get(0).get("name");
@@ -103,32 +108,10 @@ public class CreateNewAccountSteps extends SeleniumUtility {
         emailToUse = email.equalsIgnoreCase("random")
                 ? RandomGenerator.generateRandomEmail() : email;
 
-        sendKeys(SignUpPage.NAME_INPUT, name);
-        sendKeys(SignUpPage.EMAIL_INPUT, emailToUse);
-        sendKeys(SignUpPage.PASSWORD_INPUT, password);
-        sendKeys(SignUpPage.CONFIRM_PASSWORD, password);
-    }
-
-    @Then("user should see error under each field")
-    public void user_should_see_error_under_each_field(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap();
-        String nameError = data.get("nameError");
-        String emailError = data.get("emailError");
-        String passwordError = data.get("passwordError");
-        String confirmPasswordError = data.get("confirmPasswordError");
-        String actualNameError = getElementText(SignUpPage.NAME_ERROR);
-        String actualEmailError = getElementText(SignUpPage.EMAIL_ERROR);
-        String actualPasswordError = getElementText(SignUpPage.PASSWORD_ERROR);
-        String actualConfirmPasswordError = getElementText(SignUpPage.CONFIRM_PASSWORD_ERROR);
-        Assert.assertEquals(nameError,actualNameError);
-        Assert.assertEquals(emailError,actualEmailError);
-        Assert.assertEquals(passwordError,actualPasswordError);
-        Assert.assertEquals(confirmPasswordError,actualConfirmPasswordError);
-
-        System.out.println(nameError);
-        System.out.println(emailError);
-        System.out.println(passwordError);
-        System.out.println(confirmPasswordError);
+        sendText(SignUpPage.NAME_INPUT, name);
+        sendText(SignUpPage.EMAIL_INPUT, emailToUse);
+        sendText(SignUpPage.PASSWORD_INPUT, password);
+        sendText(SignUpPage.CONFIRM_PASSWORD, password);
     }
 
     @Then("validate field error messages")
@@ -145,6 +128,7 @@ public class CreateNewAccountSteps extends SeleniumUtility {
         for (int index = 0; index < expectedData.size(); index++) {
             String expected = expectedData.get(index);
             String actual = errorElements.get(index).getText();
+
             Assert.assertEquals("Error Message should match",
                     expected,
                     actual);

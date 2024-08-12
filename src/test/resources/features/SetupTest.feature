@@ -1,11 +1,12 @@
-@Regression
-Feature: This feature is to setup framework
+@Regression @SetupTest
+Feature: This feature to setup framework
 
   @Smoke
-  Scenario: Validate top left corner tek logo
-    Then Validate top left corner is TEKSCHOOL
-
+  Scenario: Validate top left corner logo
+    # Given Open browser and navigate to retail app
+    Then validate top left corner is TEKSCHOOL
+    # Then Close the browser
   @Smoke
-  Scenario: Validate sign in button and logo
-    Then Validate top left corner is TEKSCHOOL
-    Then Validate Sign in button is Enabled
+  Scenario: Validate Logo and Sign in button
+    Then validate top left corner is TEKSCHOOL
+    Then validate Sign in button is Enabled

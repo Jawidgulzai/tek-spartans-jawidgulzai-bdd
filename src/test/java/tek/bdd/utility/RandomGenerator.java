@@ -3,6 +3,7 @@ package tek.bdd.utility;
 import java.util.Random;
 
 public class RandomGenerator {
+
     public static String generateRandomEmail() {
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random = new Random();
@@ -12,7 +13,7 @@ public class RandomGenerator {
             int index = random.nextInt(characters.length() );
             randomString.append(characters.charAt(index));
         }
-        return randomString + "@gmail.com";
+        return randomString.toString() + "@gmail.com";
     }
 
 }

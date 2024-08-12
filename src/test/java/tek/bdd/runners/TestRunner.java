@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         // When dryRun is true, Cucumber will check for missing step definitions but won't run the tests.
         dryRun = false,
 
-        tags = "@Regression",
+        tags = "@AccountProfile",
 
         plugin = {
                 "html:target/cucumber_report/index.html"

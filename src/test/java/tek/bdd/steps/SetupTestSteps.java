@@ -14,14 +14,14 @@ public class SetupTestSteps extends SeleniumUtility {
 
     }
 
-    @Then("Validate top left corner is TEKSCHOOL")
+    @Then("validate top left corner is TEKSCHOOL")
     public void validateTopLeftCornerIsTekSchool() {
         String topLeftCornerTekSchoolLogo = getElementText(HomePage.TEK_SCHOOL_LOGO);
         Assert.assertEquals("TEKSCHOOL", topLeftCornerTekSchoolLogo);
         System.out.println(topLeftCornerTekSchoolLogo);
     }
 
-    @Then("Validate Sign in button is Enabled")
+    @Then("validate Sign in button is Enabled")
     public void validateSignInButtonIsEnabled() {
         boolean isSignBtnIsEnabled = isElementEnabled(HomePage.SING_IN_LINK);
         Assert.assertTrue(isSignBtnIsEnabled);

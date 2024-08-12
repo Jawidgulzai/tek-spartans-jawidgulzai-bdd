@@ -7,10 +7,6 @@ public class SignUpPage {
     public static final By EMAIL_INPUT = By.name("email");
     public static final By PASSWORD_INPUT = By.name("password");
     public static final By CONFIRM_PASSWORD = By.name("confirmPassword");
-    public static final By PAGE_SUBTITLE = By.className("signup__subtitle");
-    public static final By SIGN_UP_BTN = By.id("signupBtn");
-    public static final By CONFIRM_PASSWORD_INPUT = By.id("confirmPasswordInput");
-    public static final By PROFILE_IMAGE = By.id("profileImage");
     public static final By ERROR_MESSAGE = By.className("error");
     public static final By NAME_ERROR = By.id("nameError");
     public static final By EMAIL_ERROR = By.id("emailError");

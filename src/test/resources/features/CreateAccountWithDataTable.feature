@@ -1,4 +1,5 @@
-@Regression
+
+@Regression @CreateAccountWithDataTable
 Feature: Create new account functionality
 
 #  Steps that is common between Scenarios of specific feature.
@@ -40,9 +41,9 @@ Feature: Create new account functionality
   @UsingListOfMaps
   Scenario: Using List of maps as Data table
     When user enter new account as list of maps
-      | name     | email  | password     |
-      | John     | random | John@123     |
-      | Mohammad | random | Password@123 |
+      | name  | email  | password  |
+      | John  | random | John@123  |
+      | Jawid | random | Jawid123$ |
     When user click on "Sign Up" button
     Then validate user is in account page
     Then validate email address in account page match

@@ -6,19 +6,19 @@ import io.cucumber.java.Scenario;
 import tek.bdd.utility.SeleniumUtility;
 
 public class HooksSteps extends SeleniumUtility {
-
     @Before
-    public void beforeEachScenario(){
+    public void beforeEachScenario() {
         setupBrowser();
     }
 
     @After
-    public void afterEachScenario(Scenario scenario){
+    public void afterEachScenario(Scenario scenario) {
+
         if (scenario.isFailed()) {
-            byte[] screenShot = takeScreenShot();
-            scenario.attach(screenShot, "image/png" , "screenshot");
+            byte[] screenshot = takeScreenShot();
+            scenario.attach(screenshot, "image/png", "failed_scenario");
         }
+
         quitBrowser();
     }
-
 }
