@@ -11,7 +11,7 @@ public class AccountProfileSteps extends SeleniumUtility {
     public void validateAccountProfileName(String expectedProfileName) {
         String actualProfileName = getElementText(AccountPage.ACCOUNT_PROFILE_NAME_TEXT);
 
-        Assert.assertEquals("Account Profile should Match ",
+        Assert.assertEquals("Account Profile should Match",
                 expectedProfileName,
                 actualProfileName);
     }
