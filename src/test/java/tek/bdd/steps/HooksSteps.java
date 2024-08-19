@@ -6,6 +6,7 @@ import io.cucumber.java.Scenario;
 import tek.bdd.utility.SeleniumUtility;
 
 public class HooksSteps extends SeleniumUtility {
+
     @Before
     public void beforeEachScenario() {
         setupBrowser();

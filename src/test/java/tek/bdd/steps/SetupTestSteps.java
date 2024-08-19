@@ -8,6 +8,7 @@ import tek.bdd.utility.SeleniumUtility;
 
 public class SetupTestSteps extends SeleniumUtility {
 
+
     @Given("Open browser and navigate to retail app")
     public void openBrowserAndNavigateToRetailApp() {
         setupBrowser();

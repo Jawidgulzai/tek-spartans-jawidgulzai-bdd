@@ -28,7 +28,7 @@ public abstract class BaseSetup {
         try {
             String configFilePath = System.getProperty("user.dir") +
                     "/src/test/resources/configs/dev-config.properties";
-            LOGGER.info("Reading Config file " + configFilePath);
+            LOGGER.info("Reading Config file {}", configFilePath);
             File file = new File(configFilePath);
             FileInputStream fileInputStream = new FileInputStream(file);
             properties = new Properties();
@@ -61,7 +61,8 @@ public abstract class BaseSetup {
         LOGGER.debug("Using URL {}", url);
         driver.get(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
     public void quitBrowser() {
@@ -71,8 +72,8 @@ public abstract class BaseSetup {
         }
     }
 
-    //Giving read-only indirect access to driver.
-    //restrict setting new driver instance
+    //Giving read-only indirect access to a driver.
+    //Restrict setting new driver instance
     public WebDriver getDriver() {
         return driver;
     }

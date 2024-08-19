@@ -1,4 +1,4 @@
-  @Regression @AccountProfile
+@AccountProfile
   Feature: Account profile feature
 
     Background: Login to to account and setups
@@ -21,8 +21,11 @@
       Then validate account name is "Mohammad"
       When user enter "John" on "Name" field
       When user enter "1023022536" on "Phone Number" field
+      When wait for 5 seconds
       When user click on "Update" button
+      When wait for 5 seconds
       Then validate Toast Displayed
+      When wait for 5 seconds
 
     @UserStory6
     Scenario: Validate success password changes

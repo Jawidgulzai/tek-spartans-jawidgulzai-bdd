@@ -16,7 +16,7 @@ import java.util.Map;
 public class CreateNewAccountSteps extends SeleniumUtility {
     private static String emailToUse;
 
-    @When("user enter {string} and {string}  and {string}")
+    @When("user enter {string} and {string} and {string}")
     public void userEnterNewAccountInfo(String name, String email, String password) {
 
         emailToUse = email.equalsIgnoreCase("random")

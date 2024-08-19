@@ -68,4 +68,5 @@ public class SeleniumUtility extends BaseSetup {
     public List<WebElement> getElements(By locator) {
         return getWait().until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
+
 }

@@ -8,6 +8,7 @@ import tek.bdd.pages.SignInPage;
 import tek.bdd.utility.SeleniumUtility;
 
 public class SecurityTestSteps extends SeleniumUtility {
+
     @When("user click on sign in link")
     public void user_click_on_sign_in_link() {
         clickOnElement(HomePage.SING_IN_LINK);

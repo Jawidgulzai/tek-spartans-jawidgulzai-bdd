@@ -11,6 +11,7 @@ import tek.bdd.utility.SeleniumUtility;
 import java.util.List;
 
 public class ProductAndOrderSteps extends SeleniumUtility {
+
     @When("user enter {string} on search bar and click search")
     public void user_enter_on_search_bar_and_click_search(String searchText) {
         sendText(HomePage.SEARCH_BAR_INPUT, searchText);
@@ -18,13 +19,11 @@ public class ProductAndOrderSteps extends SeleniumUtility {
     }
 
     @Then("validate search result contains {string} for all products")
-    public void validate_search_result_contains_for_all_products(String exptectedSearchKeyword) {
+    public void validate_search_result_contains_for_all_products(String expectedSearchKeyword) {
         List<WebElement> elements = getElements(HomePage.ALL_SEARCH_RESULTS_TITLE);
 
         for (WebElement element : elements) {
-            Assert.assertTrue(element.getText()
-                    .toLowerCase().contains(exptectedSearchKeyword
-                            .toLowerCase()));
+            Assert.assertTrue(element.getText().toLowerCase().contains(expectedSearchKeyword.toLowerCase()));
         }
     }
 

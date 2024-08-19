@@ -58,7 +58,7 @@ Feature: Create new account functionality
       | Confirm Password is a required field |
 
   @ValidateFieldErrorUsingMap
-  Scenario: Validate error on All fields when no  data entered using map
+  Scenario: Validate error on All fields when no data entered using map
     When user click on "Sign Up" button
     Then validate field error messages using map
       | Name     | Name is a required field             |
